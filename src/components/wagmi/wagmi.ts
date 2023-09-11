@@ -27,7 +27,7 @@ const getRpc = (chain: { network: string }) => {
   }
 }
 
-const chainsToUse = [mainnet, ...(process.env.NODE_ENV === 'development' ? [hardhat, localhost, sepolia] : [])]
+const chainsToUse = [mainnet, ...(process.env.NODE_ENV === 'development' ? [hardhat, localhost, sepolia] : [sepolia])]
 
 const providersToUse = [
   alchemyProvider({ apiKey: alchemyApiKey }),
