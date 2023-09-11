@@ -26,6 +26,7 @@ const ContractInfoProvider: FC<ContractInfoProviderProps> = ({ children }) => {
   const contractAddresses = ContractAddresses as Array<ContractAddressType>
 
   const { chain } = useNetwork()
+  console.log({ chain })
   const networkName = chain?.name.toLowerCase()
   const contractInfo = contractAddresses.find(
     data => data.networkName === networkName || data.networkName2 === networkName
