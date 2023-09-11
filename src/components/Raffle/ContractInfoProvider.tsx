@@ -19,8 +19,8 @@ export type ContractDataType = {
 }
 
 // ** Contract Data
-import ContractAddresses from '@/constants/contractAddresses.json'
-import ABI from '@/constants/abi.json'
+import ContractAddresses from '../../../public/constants/contractAddresses.json'
+import ABI from '../../../public/constants/abi.json'
 
 const ContractInfoProvider: FC<ContractInfoProviderProps> = ({ children }) => {
   const contractAddresses = ContractAddresses as Array<ContractAddressType>
