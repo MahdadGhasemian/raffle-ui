@@ -39,6 +39,8 @@ const ContractInfoProvider: FC<ContractInfoProviderProps> = ({ children }) => {
     abi: ABI
   }
 
+  console.log({ contractData })
+
   return <>{children(contractData)}</>
 }
 

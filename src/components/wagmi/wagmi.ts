@@ -11,6 +11,11 @@ import { jsonRpcProvider } from '@wagmi/core/providers/jsonRpc'
 const alchemyApiKey = String(process.env.NEXT_PUBLIC_ALCHEMY_API_KEY)
 const walletConnectProjectId = String(process.env.NEXT_PUBLIC_WALLET_CONNECT_CLOUD_PROJECT_ID)
 
+console.log({
+  alchemyApiKey,
+  walletConnectProjectId
+})
+
 const getRpc = (chain: { network: string }) => {
   return {
     http:
@@ -22,15 +27,15 @@ const getRpc = (chain: { network: string }) => {
   }
 }
 
-const { chains, publicClient, webSocketPublicClient } = configureChains(
-  [mainnet, ...(process.env.NODE_ENV === 'development' ? [hardhat, localhost, sepolia] : [])],
-  [
-    alchemyProvider({ apiKey: alchemyApiKey }),
-    jsonRpcProvider({
-      rpc: getRpc
-    })
-  ]
-)
+const chainsToUse = [mainnet, ...(process.env.NODE_ENV === 'development' ? [hardhat, localhost, sepolia] : [])]
+
+const providersToUse = [
+  alchemyProvider({ apiKey: alchemyApiKey }),
+  ...(process.env.NODE_ENV === 'development' ? [jsonRpcProvider({ rpc: getRpc })] : [])
+]
+
+//@ts-ignore
+const { chains, publicClient, webSocketPublicClient } = configureChains(chainsToUse, providersToUse)
 
 export const config = createConfig({
   autoConnect: true,
