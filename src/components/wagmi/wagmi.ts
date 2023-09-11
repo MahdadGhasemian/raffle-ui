@@ -11,11 +11,6 @@ import { jsonRpcProvider } from '@wagmi/core/providers/jsonRpc'
 const alchemyApiKey = String(process.env.NEXT_PUBLIC_ALCHEMY_API_KEY)
 const walletConnectProjectId = String(process.env.NEXT_PUBLIC_WALLET_CONNECT_CLOUD_PROJECT_ID)
 
-console.log({
-  alchemyApiKey,
-  walletConnectProjectId
-})
-
 const getRpc = (chain: { network: string }) => {
   return {
     http:
