@@ -25,6 +25,9 @@ import ABI from '@/constants/abi.json'
 const ContractInfoProvider: FC<ContractInfoProviderProps> = ({ children }) => {
   const contractAddresses = ContractAddresses as Array<ContractAddressType>
 
+  console.log({ contractAddresses })
+  console.log({ ABI })
+
   const { chain } = useNetwork()
   const networkName = chain?.name.toLowerCase()
   const contractInfo = contractAddresses.find(
