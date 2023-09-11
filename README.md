@@ -1,1 +1,6 @@
-# raffle-ui
+# Raffle UI
+
+
+```shell
+npm run dev
+```
