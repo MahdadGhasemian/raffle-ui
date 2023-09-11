@@ -35,6 +35,9 @@ const ContractInfoProvider: FC<ContractInfoProviderProps> = ({ children }) => {
   )
   const contractAddress = contractInfo?.contractAddress
 
+  console.log(chain)
+  console.log({ networkName })
+
   if (!contractAddress) return <Typography>آدرس قرارداد هوشمند پیدا نشد!</Typography>
 
   const contractData: ContractDataType = {
